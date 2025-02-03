@@ -10,7 +10,7 @@ cart.forEach((cartItem)=>{
 
   products.forEach((product)=>{
     if(product.id === productId){
-      matchingProducts=product
+      matchingProducts = product
     }
   })
   
