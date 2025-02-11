@@ -3,12 +3,9 @@ import {products, getProduct} from "../../data/products.js";
 import { formatCurrency } from "../utils/money.js";
 import dayjs from 'https://unpkg.com/dayjs@1.11.10/esm/index.js'
 import {deliveryOptions ,getDeliveryOption} from '../../data/deliveryOption.js'
+import { renderPaymentSummary } from "./paymentSummary.js";
 
 
-const today= dayjs()
-const deliveryDate=today.add(7,'days');
-console.log(deliveryDate);   
-console.log(deliveryDate.format('dddd,MMM D'))
 
 export function renderOrderSummary(){
 
@@ -107,6 +104,8 @@ document.querySelectorAll('.js-delete-link').forEach((link)=>{
    const conatainer= document.querySelector(`.js-cart-item-${productId}`)
    
    conatainer.remove()
+
+   renderPaymentSummary();
   })
 })
 
@@ -115,6 +114,7 @@ document.querySelectorAll('.js-delivery-option').forEach((element)=>{
     const {productId,deliveryOptionId}=element.dataset
     updateDeliveryOption(productId,deliveryOptionId);
     renderOrderSummary()
+    renderPaymentSummary()
   })
 })
 
