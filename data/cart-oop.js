@@ -80,15 +80,13 @@ function Cart(storagekey){
     }
   }
   
-  return cart
+  return cart;
 }
 
 const cart= Cart('cart-oop');
 const businesscart=Cart('cart-business')
 
 cart.loadFromStorage()
-
-
 
 businesscart.loadFromStorage()
 
