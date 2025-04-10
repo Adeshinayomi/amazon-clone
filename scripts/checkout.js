@@ -3,6 +3,23 @@ import { renderPaymentSummary } from "./Checkout/paymentSummary.js";
 import { loadProducts, loadProductsFetch } from "../data/products.js";
 import { loadCart } from "../data/cart.js";
 // import '../data/cart-class.js'
+async function loadpage(){
+
+  await loadProductsFetch()
+
+  const value = await new Promise((resolve)=>{
+    loadCart(()=>{
+      resolve('value3')
+    })
+  })
+
+  renderOrderSummary();
+  renderPaymentSummary(); 
+
+
+}
+loadpage();
+/*
   Promise.all([
     loadProductsFetch(),
     new Promise((resolve)=>{
